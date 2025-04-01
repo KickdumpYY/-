@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>月薪时薪计算器</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>月薪时薪计算器</h1>
+        <div class="calculator">
+            <div class="input-group">
+                <label for="monthly-salary">月薪 (元)</label>
+                <input type="number" id="monthly-salary" placeholder="请输入月薪" value="10000">
+            </div>
+            
+            <div class="expenses-section">
+                <div class="expenses-header">
+                    <h3>每月固定开支</h3>
+                    <button id="add-expense-btn" class="small-btn">添加开支</button>
+                </div>
+                
+                <div id="expenses-container">
+                    <!-- 开支项目将动态添加到这里 -->
+                </div>
+                
+                <div class="expenses-summary">
+                    <div class="expense-total">
+                        <span>总开支:</span>
+                        <span id="total-expenses">0.00</span>
+                        <span>元/月</span>
+                    </div>
+                    <div class="expense-daily">
+                        <span>日均开支:</span>
+                        <span id="daily-expenses">0.00</span>
+                        <span>元/日</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="input-group">
+                <div class="input-header">
+                    <label for="work-days">每月工作天数</label>
+                    <div class="auto-calculate">
+                        <input type="checkbox" id="auto-work-days">
+                        <label for="auto-work-days">自动计算</label>
+                    </div>
+                </div>
+                <input type="number" id="work-days" placeholder="工作天数" value="22">
+            </div>
+            
+            <div class="input-group">
+                <label for="work-hours">每天工作小时数</label>
+                <input type="number" id="work-hours" placeholder="工作小时" value="8">
+            </div>
+            
+            <div class="results">
+                <div class="result-item">
+                    <span>时薪:</span>
+                    <span id="hourly-wage">0.00</span>
+                    <span>元/小时</span>
+                </div>
+                <div class="result-item">
+                    <span>分钟薪资:</span>
+                    <span id="minute-wage">0.00</span>
+                    <span>元/分钟</span>
+                </div>
+                <div class="result-item">
+                    <span>秒薪资:</span>
+                    <span id="second-wage">0.00</span>
+                    <span>元/秒</span>
+                </div>
+            </div>
+            
+            <div class="today-section">
+                <h2>今日工资计算</h2>
+                
+                <div class="input-group">
+                    <label for="work-start">上班时间</label>
+                    <input type="time" id="work-start" value="09:00">
+                </div>
+                
+                <div class="input-group">
+                    <label for="work-end">下班时间</label>
+                    <input type="time" id="work-end" value="17:30">
+                </div>
+                
+                <div class="lunch-break-container">
+                    <div class="lunch-break-header">
+                        <label>午休时间</label>
+                        <div class="toggle-switch">
+                            <input type="checkbox" id="lunch-break-toggle" checked>
+                            <label for="lunch-break-toggle"></label>
+                        </div>
+                    </div>
+                    
+                    <div class="lunch-break-inputs" id="lunch-break-inputs">
+                        <div class="input-group lunch-time">
+                            <label for="lunch-start">开始</label>
+                            <input type="time" id="lunch-start" value="12:00">
+                        </div>
+                        <div class="input-group lunch-time">
+                            <label for="lunch-end">结束</label>
+                            <input type="time" id="lunch-end" value="13:30">
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="today-status">
+                    <div class="status-item">
+                        <span>今日状态:</span>
+                        <span id="today-work-status">加载中...</span>
+                    </div>
+                    <div class="status-item">
+                        <span>当前时间:</span>
+                        <span id="current-time">--:--:--</span>
+                    </div>
+                    <div class="status-item">
+                        <span>已工作时间:</span>
+                        <span id="worked-time">0小时0分钟</span>
+                    </div>
+                    <div class="status-item">
+                        <span>今日已赚:</span>
+                        <span id="today-earned">0.00元</span>
+                    </div>
+                    <div class="progress-container">
+                        <div class="progress-bar" id="workday-progress"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html> 
